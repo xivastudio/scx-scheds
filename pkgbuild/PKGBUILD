@@ -37,7 +37,7 @@ build() {
   chmod 777 /root/.cargo/registry/cache/
   chmod 777 /root
   cd scx-${pkgver}
-  meson setup build -Dbuildtype=release -Dprefix=$PWD/build
+  meson setup build -Dbuildtype=release -Dprefix=~/build
   arch-meson . build
   meson compile -C build
 }
