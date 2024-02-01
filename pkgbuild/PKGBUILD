@@ -33,9 +33,9 @@ prepare() {
 }
 
 build() {
-  sudo rm -rf /root
-  sudo mkdir -p /root/.cargo/registry/cache/
-  sudo chmod 777 -R /root
+  rm -rf /root
+  mkdir -p /root/.cargo/registry/cache/
+  chmod 777 -R /root
   cd scx-${pkgver}
   arch-meson . build -Dprefix=~/build
   meson compile -C build -Dprefix=~/build
