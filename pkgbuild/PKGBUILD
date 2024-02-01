@@ -33,14 +33,10 @@ prepare() {
 }
 
 build() {
-  mkdir -p /root/.cargo/registry/cache/
-  chmod 777 /root/.cargo/registry/cache/
-  chmod 777 -R /root
-  mkdir -p ~/build
-  chmod 777 ~/build
+  sudo rm -rf /root
+  sudo mkdir -p /root/.cargo/registry/cache/
+  sudo chmod 777 -R /root
   cd scx-${pkgver}
-  meson setup build -Dbuildtype=release -Dprefix=~/build
-  arch-meson setup build -Dbuildtype=release -Dprefix=~/build
   arch-meson . build -Dprefix=~/build
   meson compile -C build -Dprefix=~/build
 }
